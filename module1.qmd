@@ -51,41 +51,38 @@ Next, we turn to a global temperature anomaly dataset from NASA GISS, similar to
 
 ### Question 4
 
-Read some [background](https://data.giss.nasa.gov/gistemp/history/background.html) as well as the [simplified documentation](https://climate.nasa.gov/vital-signs/global-temperature/?intent=121) for this dataset. 
+Read some [background](https://data.giss.nasa.gov/gistemp/history/background.html) as well as the [simplified documentation](https://climate.nasa.gov/vital-signs/global-temperature/?intent=121) for this dataset.
 
-How are the measurements made?
-Describe each column in the dataset and its units. 
-What are the resolution of the data?
+How are the measurements made? Describe each column in the dataset and its units. What are the resolution of the data?
 
 ### Question 5
-Construct code to import dataset in a format that can be used for transforming and visualization. 
 
+Construct code to import dataset in a format that can be used for transforming and visualization.
 
 ### Question 6
-Plot the trend in global mean temperature over time. Describe what you see and how you interpret the patterns you observe. 
 
+Plot the trend in global mean temperature over time. Describe what you see and how you interpret the patterns you observe.
 
 ### Question 7
-Consider the "pause" analyzed in Lewandowsky et al. 2016. Do you see evidence for such a pause? Recreate the analysis from Lewandowsky's Fig. 1. 
 
+Consider the "pause" analyzed in Lewandowsky et al. 2016. Do you see evidence for such a pause? Recreate the analysis from Lewandowsky's Fig. 1.
 
 ## Long term records of CO2
-The data from Mauna Loa go back as far as modern instrumentation. To put these values into geological perspective, we must go back much further than humans have been monitoring \[CO~2~\]. Ice sheets contain layers of snow with trapped air bubbles and can be cored and dated like tree rings. 
 
-Previously hosted by Oak Ridge National Lab, the [data](https://zenodo.org/records/3678928) associated with the famed Vostok Ice Core is now archived on Zenodo. Skim [Barnola et al. 1987](https://www.nature.com/articles/329408a0) as needed. 
+The data from Mauna Loa go back as far as modern instrumentation. To put these values into geological perspective, we must go back much further than humans have been monitoring \[CO~2~\]. Ice sheets contain layers of snow with trapped air bubbles and can be cored and dated like tree rings.
 
-After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R, making sure you understand the column names and units. 
+Previously hosted by Oak Ridge National Lab, the [data](https://zenodo.org/records/3678928) associated with the famed Vostok Ice Core is now archived on Zenodo. Skim [Barnola et al. 1987](https://www.nature.com/articles/329408a0) as needed.
+
+After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R, making sure you understand the column names and units.
 
 ### Question 8
+
 After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R. What are thbe columns and units? How were these data obtained?
 
-
 ### Question 9
-Transform the data as needed to create a plot in chronological order. Add a few different smoothing window averages to your plot. 
 
+Transform the data as needed to create a plot in chronological order. Add a few different smoothing window averages to your plot.
 
 ### Question 10
-Join your data with the Mauna Loa data and plot together, considering different colors for the different datasets. Write a catchy title and short description in the style of a NYtimes infographic, contrasting the rate of anthropogenic vs. background climate change for a general public audience. 
 
-
-
+Join your data with the Mauna Loa data and plot together, considering different colors for the different datasets. Write a catchy title and short description in the style of a NYtimes infographic, contrasting the rate of anthropogenic vs. background climate change for a general public audience.
