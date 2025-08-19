@@ -21,8 +21,8 @@ To be updated
 ### Quarto file
  - 0 points for no .qmd file or solely incorrect formatting
  - 1 point for some evidence of knitting to html
- - 2 points for substantial edits, but not all file paths or plots are working/displaying properly
- - 3 points for well-formatted file that rendesr proply to html
+ - 2 points for substantial code additions, but not all file paths or plots are working/displaying properly
+ - 3 points for well-formatted file that renders proply to html
  
 ### Written analysis
  - 0 points for no written answers to questions
@@ -34,4 +34,4 @@ To be updated
  - 0 points for no user submitted code
  - 2 points for some attempted code that does not fulfill the assignment
  - 4 points for code that completes the exercises but circumvented or minimally used the tidyverse functions
- - 6 points for succesful code that uses tidyverse syntax and follows the style guide
+ - 6 points for succesful code that uses tidyverse syntax and follows the [style guide](https://style.tidyverse.org/)
