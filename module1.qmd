@@ -1,0 +1,91 @@
+---
+title: "Module 1: Climate change"
+format: html
+editor: visual
+---
+
+```{r}
+#| warning: false
+#| output-location: false
+library(tidyverse)
+```
+
+## CO2 trends from Mauna Loa
+
+We will begin at the global scale by plotting the famed Mauna Loa CO~2~ curve at monthly intervals, with the twin objectives of (1) making layered plots with 'ggplot2', a package within the 'tidyverse' collection widely adopted by the R data science community, and (2) refreshing understanding of the seasonal cycle in atmospheric \[CO~2~\].
+
+With data you've collected yourself, it is more common to store locally as a csv. However, we can use tidyverse tools to read directly from files stored online and will do so here to get the latest data.
+
+```{r}
+#| warning: false
+#| output: false
+co2 <-read_table("https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_mm_mlo.txt", 
+                  comment="#",
+                  col_names = c("year", "month", "decimal_date", "average",
+                                "interpolated", "trend", "days"),
+                  na = c("-1", "-99.99"))
+```
+
+You can examine these data in several ways. One option is to use your mouse in the Environment tab and click on the dataset name. Alternatively, you can type `View(co2)` in your console to achieve the same outcome. Below are some other common options to understand the data structure at a glance.
+
+```{r}
+str(co2)
+head(co2)
+```
+
+### Question 1
+
+Create a timeseries plot of average \[CO~2~\]. Use `as.Date()` to create a formatted date for the x-axis. Label both the y-axis and add a line to connect the points.
+
+### Question 2
+
+What months are the \[CO~2~\] values at the maximum? Create another dataframe with these months selected and create a plot like above, but with the maximum months colored in "forestgreen".
+
+### Question 3
+
+What explains the seasonal variation in \[CO~2~\]? After reading Lewandowsky et al. 2016, how might you go about separating the long term trend and the seasonal variation in \[CO~2~\]?
+
+## Global temperature
+
+Next, we turn to a global temperature anomaly dataset from NASA GISS, similar to the GMST used by Lewandowsky et al. 2016.
+
+### Question 4
+
+Read some [background](https://data.giss.nasa.gov/gistemp/history/background.html) as well as the [simplified documentation](https://climate.nasa.gov/vital-signs/global-temperature/?intent=121) for this dataset. 
+
+How are the measurements made?
+Describe each column in the dataset and its units. 
+What are the resolution of the data?
+
+### Question 5
+Construct code to import dataset in a format that can be used for transforming and visualization. 
+
+
+### Question 6
+Plot the trend in global mean temperature over time. Describe what you see and how you interpret the patterns you observe. 
+
+
+### Question 7
+Consider the "pause" analyzed in Lewandowsky et al. 2016. Do you see evidence for such a pause? Recreate the analysis from Lewandowsky's Fig. 1. 
+
+
+## Long term records of CO2
+The data from Mauna Loa go back as far as modern instrumentation. To put these values into geological perspective, we must go back much further than humans have been monitoring \[CO~2~\]. Ice sheets contain layers of snow with trapped air bubbles and can be cored and dated like tree rings. 
+
+Previously hosted by Oak Ridge National Lab, the [data](https://zenodo.org/records/3678928) associated with the famed Vostok Ice Core is now archived on Zenodo. Skim [Barnola et al. 1987](https://www.nature.com/articles/329408a0) as needed. 
+
+After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R, making sure you understand the column names and units. 
+
+### Question 8
+After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R. What are thbe columns and units? How were these data obtained?
+
+
+### Question 9
+Transform the data as needed to create a plot in chronological order. Add a few different smoothing window averages to your plot. 
+
+
+### Question 10
+Join your data with the Mauna Loa data and plot together, considering different colors for the different datasets. Write a catchy title and short description in the style of a NYtimes infographic, contrasting the rate of anthropogenic vs. background climate change for a general public audience. 
+
+
+
