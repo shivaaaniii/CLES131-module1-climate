@@ -22,7 +22,7 @@ To be updated
  - 0 points for no .qmd file or solely incorrect formatting
  - 1 point for some evidence of knitting to html
  - 2 points for substantial code additions, but not all file paths or plots are working/displaying properly
- - 3 points for well-formatted file that renders proply to html
+ - 3 points for well-formatted file that renders properly to html
  
 ### Written analysis
  - 0 points for no written answers to questions
