@@ -9,6 +9,13 @@ editor: visual
 #| output-location: false
 library(tidyverse)
 ```
+## Team members, etc
+List your team member(s):
+
+Include a link to your forked GH repository:
+
+Include a link to your .qmd file:
+
 
 ## CO2 trends from Mauna Loa
 
@@ -33,15 +40,15 @@ str(co2)
 head(co2)
 ```
 
-### Question 1
+### Q1 (1 point)
 
 Create a timeseries plot of average \[CO~2~\]. Use `as.Date()` to create a formatted date for the x-axis. Label both the y-axis and add a line to connect the points.
 
-### Question 2
+### Q2 (1 point)
 
 What months are the \[CO~2~\] values at the maximum? Create another dataframe with these months selected and create a plot like above, but with the maximum months colored in "forestgreen".
 
-### Question 3
+### Q3 (1 point)
 
 What explains the seasonal variation in \[CO~2~\]? After reading Lewandowsky et al. 2016, how might you go about separating the long term trend and the seasonal variation in \[CO~2~\]?
 
@@ -49,23 +56,26 @@ What explains the seasonal variation in \[CO~2~\]? After reading Lewandowsky et 
 
 Next, we turn to a global temperature anomaly dataset from NASA GISS, similar to the GMST used by Lewandowsky et al. 2016.
 
-### Question 4
+### Q4 (1 point)
 
 Read some [background](https://data.giss.nasa.gov/gistemp/history/background.html) as well as the [simplified documentation](https://climate.nasa.gov/vital-signs/global-temperature/?intent=121) for this dataset.
 
 How are the measurements made? Describe each column in the dataset and its units. What are the resolution of the data?
 
-### Question 5
+### Q5 (1 point)
 
 Construct code to import dataset in a format that can be used for transforming and visualization.
 
-### Question 6
+### Q6 (1 point)
 
 Plot the trend in global mean temperature over time. Describe what you see and how you interpret the patterns you observe.
 
-### Question 7
+### Q7 (1 point)
 
-Consider the "pause" analyzed in Lewandowsky et al. 2016. Do you see evidence for such a pause? Recreate the analysis from Lewandowsky's Fig. 1.
+Consider the "pause" analyzed in Lewandowsky et al. 2016. Do you see evidence for such a pause? 
+
+### Bonus 1 (1 point)
+Recreate the analysis from Lewandowsky's Fig. 1.
 
 ## Long term records of CO2
 
@@ -75,14 +85,17 @@ Previously hosted by Oak Ridge National Lab, the [data](https://zenodo.org/recor
 
 After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R, making sure you understand the column names and units.
 
-### Question 8
+### Q8 (1 point)
 
-After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R. What are thbe columns and units? How were these data obtained?
+After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R. What are the columns and units? How were these data obtained?
 
-### Question 9
+### Q9 (1 point)
 
-Transform the data as needed to create a plot in chronological order. Add a few different smoothing window averages to your plot.
+Transform the data as needed to create a plot in chronological order. Add at least two different smoothing window averages to your plot.
 
-### Question 10
+### Q10 (1 point)
 
-Join your data with the Mauna Loa data and plot together, considering different colors for the different datasets. Write a catchy title and short description in the style of a NYtimes infographic, contrasting the rate of anthropogenic vs. background climate change for a general public audience.
+Join your data with the Mauna Loa data and plot together, considering different colors for the different datasets.
+
+### Bonus 2 (1 point)
+Write a catchy title and short description in the style of a NYtimes infographic, contrasting the rate of anthropogenic vs. background climate change for a general public audience.
