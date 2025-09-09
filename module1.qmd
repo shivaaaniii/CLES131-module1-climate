@@ -1,6 +1,6 @@
 ---
 title: "Module 1: Climate change"
-format: html
+format: pdf
 editor: visual
 ---
 
