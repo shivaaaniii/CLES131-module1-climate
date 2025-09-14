@@ -83,7 +83,6 @@ The data from Mauna Loa go back as far as modern instrumentation. To put these v
 
 Previously hosted by Oak Ridge National Lab, the [data](https://zenodo.org/records/3678928) associated with the famed Vostok Ice Core is now archived on Zenodo. Skim [Barnola et al. 1987](https://www.nature.com/articles/329408a0) as needed.
 
-After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R, making sure you understand the column names and units.
 
 ### Q8 (1 point)
 
