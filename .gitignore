@@ -2,5 +2,7 @@
 
 data/
 *.html
+*.pdf
 module1_files/
 notes/
+module1_key.qmd

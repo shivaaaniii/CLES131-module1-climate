@@ -6,16 +6,16 @@ editor: visual
 
 ```{r}
 #| warning: false
-#| output-location: false
 library(tidyverse)
 ```
+
 ## Team members, etc
+
 List your team member(s):
 
 Include a link to your forked GH repository:
 
 Include a link to your .qmd file:
-
 
 ## CO2 trends from Mauna Loa
 
@@ -54,7 +54,7 @@ What explains the seasonal variation in \[CO~2~\]? After reading Lewandowsky et 
 
 ## Global temperature
 
-Next, we turn to a global temperature anomaly dataset from NASA GISS, similar to the GMST used by Lewandowsky et al. 2016.
+Next, we turn to a global temperature anomaly [dataset](https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt) from NASA GISS, similar to the GMST used by Lewandowsky et al. 2016.
 
 ### Q4 (1 point)
 
@@ -72,9 +72,10 @@ Plot the trend in global mean temperature over time. Describe what you see and h
 
 ### Q7 (1 point)
 
-Consider the "pause" analyzed in Lewandowsky et al. 2016. Do you see evidence for such a pause? 
+Consider the "pause" analyzed in Lewandowsky et al. 2016. Do you see evidence for such a pause?
 
 ### Bonus 1 (1 point)
+
 Recreate the analysis from Lewandowsky's Fig. 1.
 
 ## Long term records of CO2
@@ -82,7 +83,6 @@ Recreate the analysis from Lewandowsky's Fig. 1.
 The data from Mauna Loa go back as far as modern instrumentation. To put these values into geological perspective, we must go back much further than humans have been monitoring \[CO~2~\]. Ice sheets contain layers of snow with trapped air bubbles and can be cored and dated like tree rings.
 
 Previously hosted by Oak Ridge National Lab, the [data](https://zenodo.org/records/3678928) associated with the famed Vostok Ice Core is now archived on Zenodo. Skim [Barnola et al. 1987](https://www.nature.com/articles/329408a0) as needed.
-
 
 ### Q8 (1 point)
 
@@ -97,4 +97,5 @@ Transform the data as needed to create a plot in chronological order. Add at lea
 Join your data with the Mauna Loa data and plot together, considering different colors for the different datasets.
 
 ### Bonus 2 (1 point)
+
 Write a catchy title and short description in the style of a NYtimes infographic, contrasting the rate of anthropogenic vs. background climate change for a general public audience.
