@@ -13,11 +13,11 @@ library(tidyverse)
 
 ### Use of GitHub
 
-Link to your forked GH repository:
+Link to your forked GH repository: https://github.com/shivaaaniii/CLES131-module1-climate
 
 ### Use of Quarto
 
-Link to your .qmd file:
+Link to your .qmd file: 
 
 ## CO2 trends from Mauna Loa
 
