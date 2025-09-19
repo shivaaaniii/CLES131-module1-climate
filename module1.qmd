@@ -46,9 +46,37 @@ head(co2)
 
 Create a timeseries plot of average \[CO~2~\]. Use `as.Date()` to create a formatted date for the x-axis. Label both the y-axis and add a line to connect the points.
 
+```{r}
+# Create a new date column using year and month
+co2 <- co2 %>%
+  mutate(date = as.Date(paste(year, month, 15, sep = "-")))  # Use 15th as middle of month
+
+# Plot average CO2 over time
+ggplot(co2, aes(x = date, y = average)) +
+  geom_line(color = "green") +
+  labs(
+    title = "Monthly Average Atmospheric CO₂ at Mauna Loa",
+    x = "Year",
+    y = "Average CO₂ (ppm)"
+  ) 
+
 ### Q2 (1 point)
 
 What months are the \[CO~2~\] values at the maximum? Create another dataframe with these months selected and create a plot like above, but with the maximum months colored in "forestgreen".
+
+```{r}
+max_months <- co2 %>%
+  group_by(year) %>%
+  filter(average == max(average, na.rm = TRUE)) %>%
+  ungroup()
+ggplot(co2, aes(x = date, y = average)) +
+  geom_line(color = "grey") +
+  geom_point(data = max_months, aes(x = date, y = average), color = "forestgreen", size = 1.5) +
+  labs(
+    title = "Monthly CO₂ with Maximum Months Highlighted",
+    x = "Year",
+    y = "Average CO₂ (ppm)"
+  )
 
 ### Q3 (1 point)
 
