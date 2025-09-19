@@ -1,7 +1,7 @@
 ---
 title: "Module 1: Climate change"
 format: pdf
-editor: visual
+editor: source
 ---
 
 ```{r}
@@ -9,13 +9,13 @@ editor: visual
 library(tidyverse)
 ```
 
-## Team members, etc
+### Use of GitHub
 
-List your team member(s):
+Link to your forked GH repository:
 
-Include a link to your forked GH repository:
+### Use of Quarto
 
-Include a link to your .qmd file:
+Link to your .qmd file:
 
 ## CO2 trends from Mauna Loa
 
