@@ -220,4 +220,4 @@ ggplot(combined_data, aes(x = calendar_year, y = CO2, color = dataset)) +
 
 Write a catchy title and short description in the style of a NYtimes infographic, contrasting the rate of anthropogenic vs. background climate change for a general public audience.
 
-Here's how human activity is impacting climate change: Eras of CO2
+Here's how human activity is impacting climate change: A Timeline of CO2
