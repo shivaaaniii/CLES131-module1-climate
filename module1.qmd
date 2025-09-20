@@ -17,7 +17,7 @@ Link to your forked GH repository: https://github.com/shivaaaniii/CLES131-module
 
 ### Use of Quarto
 
-Link to your .qmd file: 
+Link to your .qmd file: https://github.com/shivaaaniii/CLES131-module1-climate/edit/main/module1.qmd
 
 ## CO2 trends from Mauna Loa
 
@@ -59,6 +59,7 @@ ggplot(co2, aes(x = date, y = average)) +
     x = "Year",
     y = "Average CO₂ (ppm)"
   ) 
+```
 
 ### Q2 (1 point)
 
@@ -77,10 +78,14 @@ ggplot(co2, aes(x = date, y = average)) +
     x = "Year",
     y = "Average CO₂ (ppm)"
   )
+```
 
 ### Q3 (1 point)
 
 What explains the seasonal variation in \[CO~2~\]? After reading Lewandowsky et al. 2016, how might you go about separating the long term trend and the seasonal variation in \[CO~2~\]?
+
+Seasonal Variation is based on natural plant processes of growth and decay. To separate long term trends and seasonal variation,  decomposition methods can be used.
+
 
 ## Global temperature
 
@@ -92,17 +97,40 @@ Read some [background](https://data.giss.nasa.gov/gistemp/history/background.htm
 
 How are the measurements made? Describe each column in the dataset and its units. What are the resolution of the data?
 
+The data set estimates changes in global surface temperature using a network of meteorological stations, sea surface temperature measurements, and satellite observations. The columns represent year and temperature anomaly. The temporal resolution of the data set is annual, providing one data point per year. The spatial resolution of the data set is a global average. 
+
 ### Q5 (1 point)
 
 Construct code to import dataset in a format that can be used for transforming and visualization.
+
+```{r}
+{r}
+temp <- read_table(
+  "https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt",
+  skip = 5,
+  col_names = c("year", "anomaly")
+)
+```
 
 ### Q6 (1 point)
 
 Plot the trend in global mean temperature over time. Describe what you see and how you interpret the patterns you observe.
 
+```{r}
+ggplot(temp, aes(x = year, y = anomaly)) +
+  geom_line(color = "red", size = 1) +
+  geom_smooth(method = "loess", se = FALSE, color = "blue") +
+  labs(
+    title = "Global Mean Temperature Anomaly (1880–Present)",
+    x = "Year",
+    y = "Temperature Anomaly (°C, relative to 1951–1980)"
+  )
+```
 ### Q7 (1 point)
 
 Consider the "pause" analyzed in Lewandowsky et al. 2016. Do you see evidence for such a pause?
+
+The pause refers to a slower rate of global temperature increase, but was not a real slowdown in warming. When considering longer timeframes or accounting for natural variability, the warming trend continues. 1998 was a strong El Niño year, but there is still an overall increase in temperature. 
 
 ### Bonus 1 (1 point)
 
@@ -118,14 +146,78 @@ Previously hosted by Oak Ridge National Lab, the [data](https://zenodo.org/recor
 
 After downloading this dataset, create a folder entitled `data` and save the file within the folder with a .txt extension. Read this file into R. What are the columns and units? How were these data obtained?
 
+The dataset columns include depth(meters), ice age(years), air age(years), and CO2 concentration(parts per million per volume). The data was obtained by drilling deep cores into antarctic ice sheets. Each layer of snow was compacted into ice and trapped tiny air bubbles, which can be used to measure past atmospheric CO2. 
+
 ### Q9 (1 point)
 
 Transform the data as needed to create a plot in chronological order. Add at least two different smoothing window averages to your plot.
+
+```{r}
+colnames(vostok)
+
+
+vostok <- read_table("data/vostok.icecore.txt", comment = "#")
+
+vostok <- vostok %>%
+  arrange(Age_air)
+install.packages("zoo")
+library(zoo)
+vostok <- vostok %>%
+  mutate(
+    rollmean_500 = rollmean(CO2, k = 500, fill = NA, align = "center"),
+    rollmean_2000 = rollmean(CO2, k = 2000, fill = NA, align = "center")
+  )
+ggplot(vostok, aes(x = Age_air, y = CO2)) +
+  geom_line(color = "gray", alpha = 0.7) +                      # Raw data
+  geom_line(aes(y = rollmean_500), color = "blue", size = 1) +    # 500-year smooth
+  geom_line(aes(y = rollmean_2000), color = "red", size = 1) +    # 2000-year smooth
+  scale_x_reverse() +                                              # So time runs from past → present left to right
+  labs(
+    title = "Vostok Ice Core CO2 Concentration Over Time",
+    x = "Years Before Present",
+    y = expression("CO"[2]*" concentration (ppmv)"),
+    caption = "Raw data (gray), 500-year rolling average (blue), 2000-year rolling average (red)"
+  )
+```
 
 ### Q10 (1 point)
 
 Join your data with the Mauna Loa data and plot together, considering different colors for the different datasets.
 
+```{r}
+vostok <- vostok %>%
+  mutate(calendar_year = 1950 - Age_air)
+mauna_prepared <- co2 %>%
+  filter(!is.na(average)) %>%
+  mutate(calendar_year = decimal_date) %>%
+  select(calendar_year, CO2 = average) %>%
+  mutate(dataset = "Mauna Loa")
+
+# Prepare Vostok data
+vostok_prepared <- vostok %>%
+  filter(!is.na(CO2)) %>%
+  mutate(calendar_year = 1950 - Age_air) %>%
+  select(calendar_year, CO2) %>%
+  mutate(dataset = "Vostok Ice Core")
+
+# Combine datasets
+combined_data <- bind_rows(mauna_prepared, vostok_prepared)
+
+ggplot(combined_data, aes(x = calendar_year, y = CO2, color = dataset)) +
+  geom_line() +
+  scale_x_continuous(
+    trans = "reverse",  # reverse x-axis so past (older) on left, recent on right
+    name = "Year"
+  ) +
+  labs(
+    title = "Atmospheric CO2 Concentrations: Vostok Ice Core vs. Mauna Loa",
+    y = expression("CO"[2]*" concentration (ppmv)"),
+    color = "Dataset"
+  )
+```
+
 ### Bonus 2 (1 point)
 
 Write a catchy title and short description in the style of a NYtimes infographic, contrasting the rate of anthropogenic vs. background climate change for a general public audience.
+
+Here's how human activity is impacting climate change: Eras of CO2
